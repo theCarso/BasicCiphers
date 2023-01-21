@@ -14,3 +14,20 @@ def decrypt(text, key):
     encryptedArr = [(num - key)%26 for num in numArr]
     return ''.join(chr(num+97) for num in encryptedArr)
 
+
+while True:
+    # ask to encrypt or decrypt
+    prompt = input('Encrypt or decrypt (e/d)? ')
+    # decrypt the text
+    if(prompt.lower() == 'd'):
+        text = input('Please input text: ')
+        key = int(input('What is the key? '))
+        print(text.upper() + " {" + str(key) + "} -> " + decrypt(text, key))
+    # encrypt the text
+    elif (prompt.lower() == 'e'):
+        text = input('Please input text: ')
+        key = int(input('What is the key? '))
+        print(text.lower() + " {" + str(key) + "} -> " + encrypt(text, key))
+    # invalid input
+    else:
+        print('Invalid input.')
